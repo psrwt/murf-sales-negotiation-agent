@@ -1,0 +1,15 @@
+# FastAPI and Server
+fastapi
+uvicorn[standard]
+
+# Environment Variables
+python-dotenv
+
+# LangChain and LangGraph for AI logic
+langchain
+langchain-core
+langchain-google-genai
+langgraph
+
+# Vector Database Client
+pinecone-client

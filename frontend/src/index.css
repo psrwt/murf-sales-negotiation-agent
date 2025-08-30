@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+
+/* Apply base styles to the body */
+body {
+  @apply bg-gray-100 text-gray-800 antialiased;
+  /* ADD THIS LINE to set Poppins as the default font */
+  font-family: 'Poppins', sans-serif;
+}
+
+
+/* Custom scrollbar styling from your original design */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Loader animation for waiting messages */
+.loader {
+    @apply flex items-center justify-center gap-1;
+}
+.loader span {
+    width: 8px;
+    height: 8px;
+    @apply rounded-full bg-gray-400;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+.loader span:nth-child(1) { animation-delay: -0.32s; }
+.loader span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.0);
+  }
+}
+
+/* Styling for markdown-generated content inside agent messages */
+.message-text ul {
+    @apply list-disc pl-5 mt-2;
+}
+.message-text li {
+    @apply mb-1;
+}
+.message-text strong {
+    @apply font-semibold;
+}
