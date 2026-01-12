@@ -21,7 +21,7 @@ const LANGUAGE_OPTIONS = [
   { code: 'ar-SA', name: 'Arabic', voiceId: 'ar-SA-hamed' },
 ];
 
-export default function RightSidebar({ history, onSendMessage, isLoading, isSpeaking, onStopSpeech, isMobileView = false }) {
+export function RightsideBar({ history, onSendMessage, isLoading, isSpeaking, onStopSpeech, isMobileView = false }) {
   const [selectedLanguage, setSelectedLanguage] = useState('en-US');
 
   const handleSendMessage = (message) => {

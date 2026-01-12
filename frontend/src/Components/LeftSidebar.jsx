@@ -20,7 +20,7 @@ const NavLink = ({ icon, text, active, onClick, isCollapsed }) => (
     </a>
 );
 
-export default function LeftSidebar({ activePage, onPageChange, isCollapsed, onToggleCollapse, isMobileMenuOpen }) {
+export function LeftsideBar({ activePage, onPageChange, isCollapsed, onToggleCollapse, isMobileMenuOpen }) {
     const sidebarVariants = {
         collapsed: { width: '80px' },
         expanded: { width: '256px' },

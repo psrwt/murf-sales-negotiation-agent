@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import LeftSidebar from './components/LeftSidebar';
-import RightSidebar from './components/RightSidebar';
+
 import { Marketplace } from './components/Marketplace';
 import { DealCard } from './components/DealCard';
+
+import { LeftsideBar } from './Components/LeftsideBar';
+import { RightsideBar } from './Components/RightsideBar';
+
 import { useTextToSpeech } from './hooks/useTextToSpeech';
 import { Menu, X, ShoppingCart, MessageCircle } from 'lucide-react';
 
