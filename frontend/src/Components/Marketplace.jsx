@@ -37,7 +37,7 @@ export function Marketplace({ products, selectedProducts, onSelectProduct, onCom
             {products.length === 0 ? (
                 <div className="flex-1 flex flex-col items-center justify-center text-center p-8 mt-16">
                     <Package size={64} strokeWidth={1} className="text-gray-300 mb-4" />
-                    <h2 className="text-2xl font-bold text-gray-800">Welcome to Agentive</h2>
+                    <h2 className="text-2xl font-bold text-gray-800">Welcome to marketplace</h2>
                     <p className="mt-2 text-gray-500">Your AI-powered shopping assistant. Ask for a product to get started!</p>
                 </div>
             ) : (

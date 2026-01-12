@@ -38,7 +38,7 @@ export function LeftSidebar({ activePage, onPageChange, isCollapsed, onToggleCol
                 <div className={`flex items-center mb-2 px-2 ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
                     <div className="logo-container flex items-center gap-2">
                         <Package className="text-white flex-shrink-0" />
-                        {!isCollapsed && <h1 className="logo-text text-lg font-bold text-white">Agentive</h1>}
+                        {!isCollapsed && <h1 className="logo-text text-lg font-bold text-white">Negotia</h1>}
                     </div>
                     <button onClick={onToggleCollapse} className={`p-1 rounded-full hover:bg-gray-700 text-gray-400 hover:text-white transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''} hidden md:block`}>
                         <ChevronLeft size={20} />

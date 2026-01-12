@@ -26,16 +26,26 @@ function App() {
   const { playSpeech, stopSpeech, isSpeaking } = useTextToSpeech();
 
   useEffect(() => {
-    if (WELCOME_AUDIO_URL) {
-      playSpeech(WELCOME_AUDIO_URL);
-    }
+    const handleUserInteraction = () => {
+      if (WELCOME_AUDIO_URL)
+        playSpeech(WELCOME_AUDIO_URL)
+          .then(() => console.log('Audio started'))
+          .catch(err => console.error('Audio play failed:', err));
+      window.removeEventListener('click', handleUserInteraction);
+    };
+
+    window.addEventListener('click', handleUserInteraction);
+
+    return () => window.removeEventListener('click', handleUserInteraction);
   }, []);
+
+
 
   const handleSendMessage = async (message) => {
     stopSpeech();
     setIsLoading(true);
     if (window.innerWidth < 768) {
-        setMobileView('chat');
+      setMobileView('chat');
     }
     const newHistory = [...history, { role: 'user', content: message }];
     setHistory(newHistory);
@@ -60,7 +70,7 @@ function App() {
         setProducts(result.products);
         setActivePage('marketplace');
         if (window.innerWidth < 768) {
-            setMobileView('marketplace');
+          setMobileView('marketplace');
         }
       }
       if (result.special_deal) {
@@ -104,32 +114,32 @@ function App() {
 
   const renderActivePageComponent = (isMobile = false) => {
     switch (activePage) {
-        case 'marketplace':
-            return (
-                <Marketplace
-                    products={products}
-                    selectedProducts={selectedProducts}
-                    onSelectProduct={handleSelectProduct}
-                    onCompare={handleCompare}
-                    isMobile={isMobile}
-                />
-            );
-        case 'deals':
-            return (
-                <div>
-                    <h2 className="text-xl font-semibold text-gray-800 mb-6 hidden md:block">Active Deals</h2>
-                    {deal ? <DealCard deal={deal} /> : <p className="text-gray-500 pt-10">No active deals right now.</p>}
-                </div>
-            );
-        case 'history':
-             return (
-                <div>
-                    <h2 className="text-xl font-semibold text-gray-800 mb-6 hidden md:block">Full Conversation</h2>
-                    <p className="text-gray-500 pt-10">Chat history is visible on the right sidebar.</p>
-                </div>
-            );
-        default:
-            return null;
+      case 'marketplace':
+        return (
+          <Marketplace
+            products={products}
+            selectedProducts={selectedProducts}
+            onSelectProduct={handleSelectProduct}
+            onCompare={handleCompare}
+            isMobile={isMobile}
+          />
+        );
+      case 'deals':
+        return (
+          <div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-6 hidden md:block">Active Deals</h2>
+            {deal ? <DealCard deal={deal} /> : <p className="text-gray-500 pt-10">No active deals right now.</p>}
+          </div>
+        );
+      case 'history':
+        return (
+          <div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-6 hidden md:block">Full Conversation</h2>
+            <p className="text-gray-500 pt-10">Chat history is visible on the right sidebar.</p>
+          </div>
+        );
+      default:
+        return null;
     }
   }
 
@@ -148,10 +158,10 @@ function App() {
 
       <div className="flex-1 flex flex-col md:flex-row overflow-hidden relative">
         <button
-            className="md:hidden p-2 absolute top-4 left-4 z-40 text-gray-600 bg-white/70 backdrop-blur-sm rounded-full"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden p-2 absolute top-4 left-4 z-40 text-gray-600 bg-white/70 backdrop-blur-sm rounded-full"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         {/* --- Main Content for Desktop --- */}
@@ -172,7 +182,7 @@ function App() {
 
         {/* --- Right Sidebar for Desktop --- */}
         <div className="hidden md:block">
-            <RightSidebar history={history} onSendMessage={handleSendMessage} isLoading={isLoading} isSpeaking={isSpeaking} onStopSpeech={stopSpeech} />
+          <RightSidebar history={history} onSendMessage={handleSendMessage} isLoading={isLoading} isSpeaking={isSpeaking} onStopSpeech={stopSpeech} />
         </div>
 
         {/* --- Mobile View Container --- */}
