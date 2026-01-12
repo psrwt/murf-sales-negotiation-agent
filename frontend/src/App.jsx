@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { LeftSidebar } from './components/LeftSidebar';
-import { RightSidebar } from './components/RightSidebar';
+import LeftSidebar from './components/LeftSidebar';
+import RightSidebar from './components/RightSidebar';
 import { Marketplace } from './components/Marketplace';
 import { DealCard } from './components/DealCard';
 import { useTextToSpeech } from './hooks/useTextToSpeech';
 import { Menu, X, ShoppingCart, MessageCircle } from 'lucide-react';
 
-const FASTAPI_URL = 'http://127.0.0.1:8000/chat';
+const FASTAPI_URL = ' http://negotia-server.vercel.app/chat';
 const WELCOME_AUDIO_URL = "https://murf.ai/user-upload/one-day-temp/4c83bd8b-01fe-480f-afe9-9a4e82314d09.wav?response-cache-control=max-age%3D604801&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250830T000000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=259200&X-Amz-Credential=AKIA27M5532DYKBCJICE%2F20250830%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=9c4fbbd8bc0919063388d0fc628e234de2b14f7b829d9bc912d6894ef2a49c40";
 
 function App() {
