@@ -148,7 +148,7 @@ function App() {
 
   return (
     <div className="flex h-screen bg-gray-100 overflow-hidden font-sans">
-      <LeftSidebar
+      <LeftsideBar
         activePage={activePage}
         onPageChange={(page) => {
           setActivePage(page);
@@ -185,7 +185,7 @@ function App() {
 
         {/* --- Right Sidebar for Desktop --- */}
         <div className="hidden md:block">
-          <RightSidebar history={history} onSendMessage={handleSendMessage} isLoading={isLoading} isSpeaking={isSpeaking} onStopSpeech={stopSpeech} />
+          <RightsideBar history={history} onSendMessage={handleSendMessage} isLoading={isLoading} isSpeaking={isSpeaking} onStopSpeech={stopSpeech} />
         </div>
 
         {/* --- Mobile View Container --- */}
